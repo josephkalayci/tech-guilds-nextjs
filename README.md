@@ -1,7 +1,7 @@
 # Joseph Y. Kalayci
 
 ### TechGuilds demo project [Visit live page](https://tech-guilds-nextjs-typrescript.vercel.app)
-### [TypeScript version](https://github.com/josephkalayci/tech-guilds-nextjs-typrescript)
+TypeScript version can be found from [here](https://github.com/josephkalayci/tech-guilds-nextjs-typrescript)
 <br/>
 
 ## Getting Started
