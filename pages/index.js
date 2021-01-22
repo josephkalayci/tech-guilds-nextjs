@@ -24,12 +24,14 @@ import UploadButton from '../src/components/Inputs/UploadButton';
 import SocialButton from '../src/components/Buttons/SocialButton';
 import ServiceButton from '../src/components/Buttons/ServiceButton';
 import {
+  blackColor,
   blueColor,
   orangeColor,
   redColor,
   turquoiseColor,
 } from '../src/constants/colors';
 import { fetchAPI } from '../src/api';
+import Link from '../src/components/Link';
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -51,6 +53,19 @@ const useStyles = makeStyles((theme) => ({
       textAlign: 'center',
     },
   },
+  link: {
+    fontSize: '16px',
+    fontWeight: 400,
+    color: blackColor[0],
+    textAlign: 'center',
+    textDecoration: 'none',
+    transition: 'all .3s ease-in-out',
+    '&:hover': {
+      transition: 'all .3s ease-in-out',
+      textDecoration: 'none',
+      color: redColor[0],
+    },
+  },
 }));
 
 const Home = ({ pageData }) => {
@@ -58,6 +73,22 @@ const Home = ({ pageData }) => {
 
   return (
     <Layout seo={pageData.seo} carausel={pageData.carausel}>
+      <Typography className={classes.sectionTitle}>
+        {'Following pages are ready to use'}
+      </Typography>
+      <ul>
+        <li>
+          <Link color='textPrimary' href='/innovation' className={classes.link}>
+            Innovation
+          </Link>
+        </li>
+        <li>
+          <Link color='textPrimary' href='/insights' className={classes.link}>
+            Insights
+          </Link>
+        </li>
+      </ul>
+
       {/* Ctx Buttons */}
       <Grid container className={classes.section}>
         <Grid item xs={12} sm={3}>

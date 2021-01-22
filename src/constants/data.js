@@ -21,8 +21,8 @@ const navigationLinks = [
     label: 'About Us',
     href: '/about-us',
     subLinks: [
-      { label: 'Team', href: '/team' },
-      { label: 'Careers', href: '/careers' },
+      { label: 'Team', href: '/about-us/team' },
+      { label: 'Careers', href: '/about-us/careers' },
     ],
   },
   { label: 'Privacy', href: '/privacy' },

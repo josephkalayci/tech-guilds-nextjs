@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 //Material UI imports
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import PersonIcon from '@material-ui/icons/Person';
+import PeopleIcon from '@material-ui/icons/People';
 
 //Custom components
 import Link from '../Link';
@@ -37,19 +39,13 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     boxShadow: '17px 10px 31px -7px rgba(150,150,150,0.23)',
     paddingTop: '50%',
-  },
-  image: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
     backgroundImage: `url(${'/orangeBox.png'})`,
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
+    color: '#fff',
   },
+
   heading: {
     marginBottom: 40,
     textTransform: 'uppercase',
@@ -81,6 +77,73 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: 'none',
     },
   },
+  animatedContent: {
+    margin: 'auto',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
+
+    '& $icon:first-child': { '&:before': { transform: 'rotate(175deg)' } },
+
+    '& $icon:nth-child(-n+2)': {
+      marginLeft: -130,
+
+      '&:before': {
+        content: '""',
+        position: 'absolute',
+        top: 26,
+        left: -28,
+        transform: 'rotate(135deg)',
+        width: '0',
+        height: '0',
+        borderLeft: '9px solid transparent',
+        borderRight: '9px solid transparent',
+        borderBottom: '9px solid #fff',
+      },
+    },
+
+    '& $icon:nth-child(-n+2):after': {
+      left: 84,
+    },
+    '& $icon:first-child:after': { left: 88, width: 140 },
+    '&:hover $icon': {
+      transition: 'all .3s ease-in-out',
+      marginTop: 4,
+      marginBottom: 4,
+    },
+    '&:hover $icon:nth-child(-n+2)': {
+      transition: 'all .3s ease-in-out',
+      marginLeft: -154,
+    },
+  },
+  icon: {
+    display: 'inline-block',
+    position: 'relative',
+    fontSize: 50,
+    lineHeight: 0,
+    margin: 0,
+    padding: 0,
+    transition: 'all .3s ease-in-out',
+    '&:after': {
+      transition: 'all .3s ease-in-out',
+      content: '""',
+      position: 'absolute',
+      left: 74,
+      top: 18,
+      height: 14,
+      width: 90,
+      backgroundColor: '#fff',
+    },
+  },
 }));
 
 const BlogCard = ({
@@ -97,8 +160,23 @@ const BlogCard = ({
   return (
     <Grid container className={clsx(classes.root, className)}>
       <Grid item xs={12} sm={6} className={classes.imageContainer}>
-        <div className={classes.image} />
-        {/* TODO:add animated content */}
+        <div className={classes.animatedContent}>
+          <div className={classes.icon}>
+            <PeopleIcon fontSize='inherit' />
+          </div>
+          <div className={classes.icon}>
+            <PeopleIcon fontSize='inherit' />
+          </div>
+          <div className={classes.icon}>
+            <PersonIcon fontSize='inherit' />
+          </div>
+          <div className={classes.icon}>
+            <PersonIcon fontSize='inherit' />
+          </div>
+          <div className={classes.icon}>
+            <PersonIcon fontSize='inherit' />
+          </div>
+        </div>
       </Grid>
       <Grid item xs={12} sm={6} className={classes.contentContainer}>
         {heading && (
